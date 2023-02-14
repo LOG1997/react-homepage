@@ -1,19 +1,20 @@
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from "react-router-dom";
 import { INavCardProps } from './type'
-import { randomGradientColor } from '@/utils/color'
+// import { randomGradientColor } from '@/utils/color'
+import { getRandomGradientColor } from 'random-liner-gradient';
 import { motion } from "framer-motion"
 import SvgIcon from '@/components/SvgIcon'
 export default function index(props: INavCardProps) {
     const navigate = useNavigate();
     const { title, link, description = '', image = 'https://w.wallhaven.cc/full/1p/wallhaven-1pqq1w.jpg', icon = 'home' } = props.items;
     const styleInit = {
-        backgroundImage: `${randomGradientColor()}`,
+        backgroundImage: `${getRandomGradientColor()}`,
     }
     const [style, setStyle] = useState(styleInit)
     const onMouseOver = () => {
         // style.backgroundImage = `${randomGradientColor()}`;
-        setStyle({ backgroundImage: `${randomGradientColor()}` })
+        setStyle({ backgroundImage: `${getRandomGradientColor('', -361, 90)}` })
     }
     const handleSkip = () => {
         setTimeout(() => {

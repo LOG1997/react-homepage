@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
+import { getRandomGradientColor } from 'random-liner-gradient';
 
 import { message } from 'antd';
 import './index.scss'
@@ -27,7 +28,6 @@ export default function index() {
             message.error('Please enter right username and password');
             return;
         }
-
         const randBoolean = Math.random() < 0.5;
         setLoginErr(randBoolean)
         setOpenToast(!randBoolean)
@@ -58,7 +58,9 @@ export default function index() {
                     restDelta: 0.001
                 }}
             />
-            <div className='homepage1-login-container h-full w-1/2 min-w-600px flex justify-center'>
+            <div className='homepage1-login-container h-full w-1/2 min-w-600px flex justify-center'
+            // style={{ backgroundImage: getRandomGradientColor() }}
+            >
                 <div className='w-3/4 flex flex-col items-left pt-36'>
                     <div className="home-login-welcom">
                         <h2 className='text-3xl font-bold'>Welcome You!</h2>
