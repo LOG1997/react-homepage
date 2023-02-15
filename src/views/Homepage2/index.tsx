@@ -5,11 +5,11 @@ import './index.scss'
 export default function HomePage2() {
 
     return (
-        <div className='w-full h-screen'>
+        <div className='w-full h-screen bg-transparent'>
             <div className='fixed w-full z-50'>
                 <Header></Header>
             </div>
-            <div className='bg-gray-500'>
+            <div className=''>
                 <Content></Content>
             </div>
         </div>
