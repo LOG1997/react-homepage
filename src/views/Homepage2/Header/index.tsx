@@ -13,7 +13,7 @@ const buttonColor = '#000'
 export default function index() {
 
     return (
-        <div className='w-full h-16 flex bg-transparent justify-center relative shadow-xl'>
+        <div className='w-full h-16 flex bg-light-200 justify-center relative shadow-xl'>
             <Navbar bg="light" expand="md" className='header-container'>
                 <Container fluid className="header-container  h-full flex justify-between">
                     <Navbar.Brand href="#" className="header-left h-16 flex items-center pl-10">
@@ -26,11 +26,11 @@ export default function index() {
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     {/* <div className="header-right-container flex items-center pr-6"> */}
-                    <Navbar.Collapse id="navbarScroll" className="header-nav-container h-16">
+                    <Navbar.Collapse id="navbarScroll" className="header-nav-container bg-light-200">
                         {
                             navList.map((item, index) => {
                                 return (
-                                    <p key={index} className='header-nav-item text-dark-500 font-bold font-mono text-lg px-3 mt-3 cursor-pointer'>{item.name}</p>
+                                    <p key={index} className='header-nav-item text-dark-500  font-bold font-mono text-lg px-3 mt-3 cursor-pointer'>{item.name}</p>
                                 )
                             })
                         }
