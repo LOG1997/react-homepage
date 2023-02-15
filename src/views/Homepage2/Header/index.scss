@@ -2,6 +2,7 @@
     width: 1200px;
     .header-right-container {
         .header-nav-container {
+            max-width: 300px;
             .header-nav-item {
                 text-align: center;
                 display: inline;
@@ -14,23 +15,25 @@
                 }
             }
         }
-        .header-nav-button {
-            display: none;
-        }
     }
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .header-container {
         width: 100%;
         .header-right-container {
             .header-nav-container {
-                .header-nav-item {
-                    display: none;
-                }
-            }
-            .header-nav-button {
-                display: inline;
+                max-width: 100%;
             }
         }
+        // .header-right-container {
+        //     .header-nav-container {
+        //         .header-nav-item {
+        //             display: none;
+        //
+        //     }
+        //     .header-nav-button {
+        //         display: inline;
+        //     }
+        // }
     }
 }
