@@ -2,35 +2,39 @@
     width: 1200px;
     .header-right-container {
         .header-nav-container {
-            .header-nav-item {
-                text-align: center;
-                display: inline;
-                &:hover {
-                    background-image: linear-gradient(to top right, #5ef551, #f551b6);
-                    background-clip: text;
-                    -webkit-background-clip: text;
-                    color: transparent;
-                    // box-shadow: 1px 1px 1px 1px #f551b6;
-                }
-            }
-        }
-        .header-nav-button {
-            display: none;
+            max-width: 300px;
+            // .header-nav-item {
+            //     text-align: center;
+            //     display: inline;
+            //     &:hover {
+            //         background-image: linear-gradient(to top right, #5ef551, #f551b6);
+            //         background-clip: text;
+            //         -webkit-background-clip: text;
+            //         color: transparent;
+            //         // box-shadow: 1px 1px 1px 1px #f551b6;
+            //     }
+            // }
         }
     }
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .header-container {
         width: 100%;
+
         .header-right-container {
             .header-nav-container {
-                .header-nav-item {
-                    display: none;
-                }
-            }
-            .header-nav-button {
-                display: inline;
+                max-width: 100%;
             }
         }
+        // .header-right-container {
+        //     .header-nav-container {
+        //         .header-nav-item {
+        //             display: none;
+        //         }
+        //     }
+        //     .header-nav-button {
+        //         display: inline;
+        //     }
+        // }
     }
 }

@@ -1,0 +1,31 @@
+.img-background-container {
+    margin-top: 60px;
+    // width: 120;
+    height: calc(100vh - 60px);
+    overflow: auto;
+    // position: relative;
+    width: 100%;
+
+    // .img-background-mask {
+    //     height: 100%;
+    //     background-color: transparent;
+    //     background-image: linear-gradient(to top, #7028e499 0%, transparent 50%);
+    //     z-index: -50;
+    // }
+    img {
+        z-index: -100;
+        height: calc(100vh - 60px);
+        max-width: none;
+        max-height: 100%;
+        // object-fit: cover;
+    }
+}
+.img-background-mask {
+    // content: "";
+    z-index: 1;
+    position: absolute;
+    // display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, #202020d7 0%, transparent 90%);
+}
