@@ -18,9 +18,9 @@ module.exports = {
   rules: {
     "no-console": 1,
   },
-  setting: {
-    react: {
-      version: "999.999.999",
-    },
-  },
+  // setting: {
+  //   react: {
+  //     version: "999.999.999",
+  //   },
+  // },
 };

@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from 'react'
 import backgroundImage from '@/assets/images/background.jpg'
 import LeftContent from './components/LeftContent'
-
-
+import RightContent from './components/RightContent'
+import SecondContent from './components/SecondContent'
 import './index.scss'
 export default function Content() {
 
@@ -13,7 +13,6 @@ export default function Content() {
         if (imgBackground.current) {
             const imgBackgroundScrollLeft = imgBackground.current.scrollLeft
             const imgScrollLeft = imgBackground.current.scrollLeft
-
             imgBackground.current.scrollLeft = 300;
             const timer = setInterval(() => {
                 imgBackground.current.scrollLeft += 0.2;
@@ -37,9 +36,16 @@ export default function Content() {
                 </div>
 
             </div>
-
-            <div className='content-container z-50'>
-                <LeftContent />
+            <div className='content-container z-50 flex'>
+                <div>
+                    <LeftContent />
+                </div>
+                <div className='right-content-container'>
+                    <RightContent />
+                </div>
+            </div>
+            <div className=''>
+                <SecondContent />
             </div>
         </div>
     )
