@@ -1,11 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import SvgIcon from '@/components/SvgIcon'
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useScroll } from '@/hooks/useScroll'
 import { navList } from './nav_config'
 import './index.scss'
@@ -26,8 +22,8 @@ export default function index() {
     }, [scroll.y])
     // scroll.y > 100 ? setHeaderFullStyle({ backdropFilter: "saturate(50 %) blur(20px)" }) : setHeaderFullStyle({ backdropFilter: "saturate(50 %) blur(0px)" })
     return (
-        <div style={headerFullStyle} ref={headerFull} className=' header-full w-full h-16 flex justify-center relative shadow-xl' >
-            <Navbar expand="md" className='header-container '>
+        <div style={headerFullStyle} ref={headerFull} className='header-full w-full h-16 flex justify-center relative shadow-2xl' >
+            <Navbar expand="md" className='header-container'>
                 <Container fluid className="header-container  h-full flex justify-between">
                     <Navbar.Brand href="#" className="header-left h-16 flex items-center pl-10">
                         <div className="header-logo-container w-30 h-16 flex items-center">

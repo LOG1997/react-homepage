@@ -11,19 +11,16 @@ export default function Content() {
 
     const motionBackground = () => {
         if (imgBackground.current) {
-            const imgBackgroundScrollLeft = imgBackground.current.scrollLeft
-            const imgScrollLeft = imgBackground.current.scrollLeft
             imgBackground.current.scrollLeft = 300;
             const timer = setInterval(() => {
-                imgBackground.current.scrollLeft += 0.2;
+                imgBackground.current ? (imgBackground.current.scrollLeft += 0.2) : null;
                 // console.log('😈 imgBackground.current.scrollLeft:', imgBackground.current.scrollLeft)
             }, 20)
         }
     }
     useEffect(() => {
         motionBackground();
-
-        imgBackground.current.scrollLeft = 1200;
+        // imgBackground.current.scrollLeft = 1200;
     }, [])
     return (
         <div className='content bg-blue-200 relative'>
@@ -44,7 +41,7 @@ export default function Content() {
                     <RightContent />
                 </div>
             </div>
-            <div className=''>
+            <div className='second-content min-h-96 w-full mt-10'>
                 <SecondContent />
             </div>
         </div>

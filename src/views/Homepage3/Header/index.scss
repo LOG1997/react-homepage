@@ -1,0 +1,12 @@
+#navbarScroll {
+    margin-left: 300px;
+}
+
+@media (max-width: 1200px) {
+    #navbarScroll {
+        margin-left: 0px;
+    }
+}
+.header-full {
+    backdrop-filter: saturate(50%) blur(20px);
+}

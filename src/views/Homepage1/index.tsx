@@ -46,7 +46,7 @@ export default function index() {
         setPassword(e.target.value)
     }
     return (
-        <div className='w-full h-full homepage1-root'>
+        <div className='w-full h-screen homepage1-root'>
             <motion.div
                 ref={ref}
                 className="box z--1"

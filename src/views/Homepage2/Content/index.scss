@@ -40,12 +40,18 @@
     // background-color: transparent;
     .content-container {
         height: 100%;
-        min-height: 500px;
+        min-height: 100vh;
         width: 100%;
-        margin-top: 8%;
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        // margin-top: 200px;
         // position: absolute;
         position: relative;
         max-width: 1200px;
+    }
+    .second-content {
+        position: relative;
     }
 }
 @media (max-width: 768px) {
@@ -74,6 +80,8 @@
                     }
                 }
             }
+        }
+        .second-content {
         }
     }
 }

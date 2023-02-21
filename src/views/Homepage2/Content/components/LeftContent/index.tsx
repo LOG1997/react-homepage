@@ -43,14 +43,14 @@ export default function LeftContent() {
         >
             <div >
                 <div className="left-content h-full font-mono text-light-200 select-none" >
-                    <h2 className='text-6xl font-extrabold'>兰亭集会</h2>
+                    <h2 className='text-6xl font-extrabold mb-12'>兰亭集会</h2>
                     <p className='text-xl'>
                         <SvgIcon name='location' ></SvgIcon>
                         <span> &nbsp;&nbsp;&nbsp; </span>
                         <span>成都·四川</span>
                         {/* 空格 */}
                         <span> &nbsp;&nbsp;&nbsp; </span>
-                        <span>2023/4/23(农历三月初三)</span>
+                        <span>2023/4/22(农历三月初三)</span>
                     </p>
                     <p className='tracking-widest text-xl'>近平十年，岁在癸卯，暮春之初。</p>
                     <p className='tracking-widest leading-loose text-xl'>夫人之相与，俯仰一世。或取诸怀抱，悟言一室之内；或因寄所托，放浪形骸之外。
