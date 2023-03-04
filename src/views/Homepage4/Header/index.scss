@@ -1,0 +1,19 @@
+.head-center-container {
+    width: 1200px;
+}
+.sign-button {
+    background-image: linear-gradient(
+        to top right,
+        #b8cbb8 0%,
+        #b8cbb8 0%,
+        #b465da 0%,
+        #cf6cc9 33%,
+        #ee609c 66%,
+        #ee609c 100%
+    );
+}
+@media (max-width: 768px) {
+    .head-center-container {
+        min-width: 100%;
+    }
+}

@@ -33,4 +33,14 @@ export const routes_config = [
         },
         children: []
     }
+    , {
+        path: "/homepage4",
+        component: lazy(() => import('@/views/Homepage4')),
+        meta: {
+            title: 'Homepage4',
+            icon: 'home4',
+            description: 'Homepage4'
+        },
+        children: []
+    }
 ];
