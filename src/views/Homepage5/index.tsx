@@ -2,8 +2,21 @@ import React, { useEffect, useRef } from "react";
 import "./index.scss";
 export default function index() {
     const el = useRef<HTMLCanvasElement>(null);
+    // 长宽
     const WIDTH = 600;
     const HEIGHT = 600;
+    // 默认起点
+    const defaultPoint = {
+        start: { x: WIDTH / 2, y: HEIGHT },
+        length: 20,
+        theta: -Math.PI / 2,
+    }
+    // 随机长度
+    const randomLength = () => Math.random() * 10 - 5;
+    // 随机角度
+    const randomTheta = () => Math.random() * 0.3;
+    // 默认概率
+    const defaultProbability = 0.6;
     interface Point {
         x: number;
         y: number;
@@ -15,6 +28,7 @@ export default function index() {
     }
     // eslint-disable-next-line @typescript-eslint/ban-types
     const pendingTasks: Function[] = [];
+    // pending任务，队列执行
     const frame = () => {
         const tasks = [...pendingTasks];
         pendingTasks.length = 0;
@@ -29,21 +43,20 @@ export default function index() {
         });
     };
     startFrame();
-    const init = (ctx: any) => {
+    // 初始化
+    const init = (ctx: CanvasRenderingContext2D) => {
         ctx.strokeStyle = "#FFF";
-        step(ctx, {
-            start: { x: WIDTH / 2, y: HEIGHT },
-            length: 20,
-            theta: -Math.PI / 2,
-        });
+        step(ctx, defaultPoint);
     };
-    const drawLineTo = (ctx: any, p1: Point, p2: Point) => {
+    // canvas绘图
+    const drawLineTo = (ctx: CanvasRenderingContext2D, p1: Point, p2: Point) => {
         ctx.beginPath();
         ctx.moveTo(p1.x, p1.y);
         ctx.lineTo(p2.x, p2.y);
         ctx.stroke();
     };
-    const drawLine = (ctx: any, line: Line) => {
+    // 抽取参数传递
+    const drawLine = (ctx: CanvasRenderingContext2D, line: Line) => {
         const { start, length, theta } = line;
         const end = {
             x: start.x + length * Math.cos(theta),
@@ -52,6 +65,7 @@ export default function index() {
         drawLineTo(ctx, start, getEndPoint(line));
         return end;
     };
+    // 获取终点
     const getEndPoint = (line: Line) => {
         const { start, length, theta } = line;
         const end = {
@@ -60,29 +74,30 @@ export default function index() {
         };
         return end;
     };
-    const step = (ctx: any, line: Line, depth = 0) => {
+    // 递归执行
+    const step = (ctx: CanvasRenderingContext2D, line: Line, depth = 0) => {
         const end = getEndPoint(line);
         drawLine(ctx, line);
-        if (depth < 4 || Math.random() < 0.6) {
+        if (depth < 4 || Math.random() < defaultProbability) {
             pendingTasks.push(() =>
                 step(
                     ctx,
                     {
                         start: end,
-                        length: line.length + (Math.random() * 10 - 5),
-                        theta: line.theta - 0.3 * Math.random(),
+                        length: line.length + randomLength(),
+                        theta: line.theta - randomTheta(),
                     },
                     depth + 1
                 )
             );
-            if (depth < 4 || Math.random() < 0.6) {
+            if (depth < 4 || Math.random() < defaultProbability) {
                 pendingTasks.push(() =>
                     step(
                         ctx,
                         {
                             start: end,
-                            length: line.length + (Math.random() * 10 - 5),
-                            theta: line.theta + 0.3 * Math.random(),
+                            length: line.length + randomLength(),
+                            theta: line.theta + randomTheta(),
                         },
                         depth + 1
                     )
@@ -91,7 +106,7 @@ export default function index() {
         }
     };
     useEffect(() => {
-        const ctx = el.current!.getContext("2d");
+        const ctx = el.current!.getContext("2d") as CanvasRenderingContext2D
         // ctx = el.current!.getContext('2d')!
         init(ctx);
     }, []);
