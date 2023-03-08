@@ -9,7 +9,6 @@ const buttonColor = '#000'
 export default function index() {
     const headerFull = useRef<HTMLDivElement>(null);
     const scroll = useScroll();
-    // console.log('😎scroll:', scroll)
     const [headerFullStyle, setHeaderFullStyle] = useState({ backdropFilter: "saturate(50%) blur(0px)" });
     useEffect(() => {
         if (scroll.y > 150) {
@@ -20,7 +19,6 @@ export default function index() {
             setHeaderFullStyle({ backdropFilter: "blur(0px)" })
         }
     }, [scroll.y])
-    // scroll.y > 100 ? setHeaderFullStyle({ backdropFilter: "saturate(50 %) blur(20px)" }) : setHeaderFullStyle({ backdropFilter: "saturate(50 %) blur(0px)" })
     return (
         <div style={headerFullStyle} ref={headerFull} className='header-full w-full h-16 flex justify-center relative shadow-2xl' >
             <Navbar expand="md" className='header-container'>
