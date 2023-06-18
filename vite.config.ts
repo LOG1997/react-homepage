@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import viteEslint from "vite-plugin-eslint";
 import path from "path";
-import WindiCSS from 'vite-plugin-windicss'
+import UnoCSS from 'unocss/vite';
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 
 // https://vitejs.dev/config/
@@ -11,7 +11,8 @@ export default defineConfig({
     react(),
     viteEslint({
       failOnError: false,
-    }), WindiCSS(),
+    }), 
+    UnoCSS(),
     // * 使用 svg 图标
     createSvgIconsPlugin({
       iconDirs: [path.resolve(process.cwd(), "src/assets/icons")],
