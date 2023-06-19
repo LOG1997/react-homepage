@@ -7,8 +7,8 @@ export default function Header() {
             <div className='i-logos:tiktok h-full w-32'></div>
         </div>
         <div className='flex flex-row gap-6 h-full items-center text-xl text-light-300 mr-20 cursor-pointer pt-2'>
-            <p className='hover:text-gray-100/80'>首页</p>
-            <p className='hover:text-gray-100/80'>支持</p>
+            <p className='hover:text-gray-500/80'>首页</p>
+            <p className='hover:text-gray-500/80'>支持</p>
         </div>
     </div>
   )

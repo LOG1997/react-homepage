@@ -2,18 +2,37 @@ import React, { useEffect, useRef, useState } from 'react';
 import Header from './components/Header';
 import backImage from '@/assets/images/home4-background.jpg';
 import backImageTop1 from '@/assets/images/homemaintop1.png';
+import mobilePic from '@/assets/images/mmobilepic.png'
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import { motion } from 'framer-motion';
 
 import { useScroll } from 'ahooks';
+
+import TabShow from './components/TabShow';
+import GobleSearch from './components/GobleSearch';
+import SnapG from './components/SnapG';
+
 import 'animate.css'
 import './index.scss'
 function Main1() {
+
+    const scroll = useScroll(document);
     const backRef = useRef(null);
-    const back1=useRef(null);
+    const back1 = useRef(null);
     const homeTextRef = useRef(null);
+    const mobilePicRef = useRef(null);
+    useEffect(() => {
+        if (!scroll?.top) {
+            return
+        }
+        if (scroll?.top > 100) {
+            // 显示
+            back1.current?.classList.remove('invisible');
+            mobilePicRef.current?.classList.remove('invisible');
+        }
+    }, [scroll?.top]);
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
         const t1 = gsap.timeline({
@@ -26,7 +45,7 @@ function Main1() {
                 // markers: true,
             },
         });
-        t1.to(backRef.current, { scale: 0.25, duration: 1 });
+        t1.to(backRef.current, { scale: 0.25, opacity: 1, duration: 1 });
 
         const t2 = gsap.timeline({
             scrollTrigger: {
@@ -35,10 +54,10 @@ function Main1() {
                 end: '+=900px', // end after scrolling 500px beyond the start
                 scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
             },
-  
+
         });
         // move to center while scrolling
-        t2.to(back1.current, {  duration: 1, y: 1000, x: 1500 });
+        t2.to(back1.current, { duration: 1, y: 940, x: 1660 });
         const t3 = gsap.timeline({
             scrollTrigger: {
                 trigger: homeTextRef.current,
@@ -49,39 +68,52 @@ function Main1() {
             }
         });
         t3.to(homeTextRef.current, { opacity: 0, duration: 1 });
+        const t4 = gsap.timeline({
+            scrollTrigger: {
+                trigger: mobilePicRef.current,
+                start: 'top',
+                end: '+=600px',
+                scrub: 1,
+            }
+        })
+        t4.to(mobilePicRef.current, { duration: 1, y: -900, x: -1700 })
     }, []);
     return (
-        <div className='absolute w-1000 h-auto mx-auto'>
+        <div className='absolute w-1000 h-auto mx-auto flex flex-col'>
 
             <div
                 ref={backRef}
-                className="backRef absolute w-1000"
+                className="backRef absolute w-1000 "
             >
                 <img className="w-full h-full" src={backImage} alt="" />
             </div>
-            <div className='z-199 mx-auto' ref={back1}>
-                <img className='w-99' src={backImageTop1} alt="" />
+
+            <div className='z-120 invisible' ref={back1}>
+                <img className='w-170' src={backImageTop1} alt="" />
             </div>
-            <div className='z-200 mx-auto' ref={homeTextRef}>
-                <HomeText></HomeText>
+            <div className='z-199 self-end pt-400' ref={mobilePicRef}>
+                <img className='w-40' src={mobilePic} alt="" />
             </div>
+
         </div>
     );
 }
 
-function HomeText() {
+function HomeText(props: any) {
+    // const {scrollTopStart,scrollTopStart} =props;
     const homeTextRef = useRef(null);
     const scroll = useScroll(document);
-    const [isShow, setIsShow] = useState(true);
+    const [isShow, setIsShow] = useState(false);
     const listenScroll = (top: number | undefined) => {
-        if (!top) {
+        if (top==undefined) {
+            // setIsShow(true);
             return
         }
-        if (top > 100) {
-            setIsShow(false);
+        if (top >= props.scrollTopStart && top < props.scrollTopEnd) {
+            setIsShow(true);
         }
         else {
-            setIsShow(true);
+            setIsShow(false);
         }
     }
     useEffect(() => {
@@ -119,21 +151,31 @@ function HomeText() {
 export default function Homepage7() {
     const mainRef = useRef(null);
     return (
-        <div className=" h-full w-full">
-
-            <div className="fixed w-full z-100">
+        <div className=" h-1000 w-full flex flex-col items-center">
+            <div className="fixed w-full z-1000">
                 <Header></Header>
             </div>
-            <div className="absolute w-full flex justify-center">
+            <div className="w-full h-360 flex justify-center">
                 <Main1></Main1>
             </div>
             <div className="fixed mt-60 flex w-full justify-center">
-                <HomeText></HomeText>
+                <HomeText scrollTopStart={0} scrollTopEnd={100}></HomeText>
+            </div>
+            <div className='flex justify-center'>
+                <HomeText scrollTopStart={600} scrollTopEnd={2400}></HomeText>
+            </div>
+            <div className='min-w-1000px h-90 flex justify-center'>
+                <TabShow scrollTopStart={1200} scrollTopEnd={3200}></TabShow>
+            </div>
+            <div className='w-220 flex h-290 justify-center pb-30'>
+                <GobleSearch scrollTopStart={1500} scrollTopEnd={4800}></GobleSearch>
+            </div>
+            <div className='w-220 flex h-120 justify-center'>
+                <SnapG scrollTopStart={2500} scrollTopEnd={5200}></SnapG>
             </div>
             {/* <div id='logo' ref={backRef} className='h-20 w-80 bg-black'>
             <img className='w-full h-full' src={backImage} alt="" />
         </div> */}
-            <div className="h-1000"></div>
         </div>
     );
 }
