@@ -1,9 +1,8 @@
 import React from "react";
 import { Space, Tag } from "antd";
-import { ITableConstant, ITableAction } from "@/types/table";
 
-export const generateColumns = <T extends { id: string }>(constant: ITableConstant[]) => {
-  return constant.map((item: ITableConstant) => {
+export const generateColumns = <T extends { id: string }>(constant: any[]) => {
+  return constant.map((item: any) => {
     if (item.isLink) {
       return {
         title: item.title,
@@ -50,10 +49,10 @@ export const generateColumns = <T extends { id: string }>(constant: ITableConsta
         // * fixed属性与
         // fixed: item.fixed || '',
         ellipsis: item.ellipsis || false,
-        render: (_: ITableConstant, record: T) => {
+        render: (_: any, record: T) => {
           const actionElement =
             <Space size="middle">
-              {item.actions?.map((action: ITableAction) => {
+              {item.actions?.map((action: any) => {
                 return (
                   <a key={action.title} onClick={() => action.func(record.id)}>{action.title}</a>
                 )

@@ -20,9 +20,9 @@ function Main1() {
 
     const scroll = useScroll(document);
     const backRef = useRef(null);
-    const back1 = useRef(null);
+    const back1 = useRef<HTMLDivElement>(null);
     const homeTextRef = useRef(null);
-    const mobilePicRef = useRef(null);
+    const mobilePicRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         if (!scroll?.top) {
             return

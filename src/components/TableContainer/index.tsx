@@ -1,9 +1,8 @@
 import React from 'react'
 import { Table } from 'antd';
-import { IProps } from "@/types/components"
 import type { ColumnType } from 'antd/es/table';
 import { generateColumns } from './columns'
-export default function TableContainer<T extends { id: string }>(props: IProps<T>): React.ReactElement {
+export default function TableContainer<T extends { id: string }>(props:any): React.ReactElement {
     const { data, constant, title } = props;
     const columns: ColumnType<T>[] = generateColumns<T>(constant)
 

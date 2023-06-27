@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import { useScroll } from 'ahooks';
 import { debounce } from 'lodash';
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 let timer: any = null;
 export default function TabShow(props: any) {
 
@@ -73,13 +71,13 @@ function TabContent(props: any) {
 function TabBar(props: any) {
 
 
-    const liOne = useRef(null);
+    const liOne = useRef<HTMLLIElement>(null);
 
-    const liTwo = useRef(null);
-    const liThree = useRef(null);
-    const tipOne = useRef(null);
-    const tipTwo = useRef(null);
-    const tipThree = useRef(null);
+    const liTwo = useRef<HTMLLIElement>(null);
+    const liThree = useRef<HTMLLIElement>(null);
+    const tipOne = useRef<HTMLDivElement>(null);
+    const tipTwo = useRef<HTMLDivElement>(null);
+    const tipThree = useRef<HTMLDivElement>(null);
     // const debouncedSetActiveLi = debounce((value: number) => {
     //   props.setActiveLi(value);
     // }, 500);
