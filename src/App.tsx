@@ -1,19 +1,21 @@
-import React from 'react'
+import React from 'react';
 import { Provider } from 'react-redux';
-import store from './reduce'
+import store from './reduce';
 
-import { HashRouter  } from "react-router-dom";
-import { AliveScope } from 'react-activation'
-import { Router } from "@/router";
+import { HashRouter } from 'react-router-dom';
+import { AliveScope } from 'react-activation';
+import { Router } from '@/router';
 
 function App() {
-
-  return (
-    <Provider store={store}>
-      <HashRouter ><AliveScope>
-        <Router></Router></AliveScope></HashRouter>
-    </Provider>
-  )
+    return (
+        <Provider store={store}>
+            <HashRouter basename="/react-homepage">
+                <AliveScope>
+                    <Router></Router>
+                </AliveScope>
+            </HashRouter>
+        </Provider>
+    );
 }
 
-export default App
+export default App;
