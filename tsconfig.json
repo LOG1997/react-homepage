@@ -23,7 +23,6 @@
         "baseUrl": "./",
         "types": [
             "babylonjs",
-            "anotherAwesomeDependency"
         ],
         // 模块名到基于 baseUrl的路径映射的列表。
         "paths": {
