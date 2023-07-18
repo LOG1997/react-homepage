@@ -12,7 +12,6 @@ export default function index() {
     const [headerFullStyle, setHeaderFullStyle] = useState({ backdropFilter: "saturate(50%) blur(0px)" });
     useEffect(() => {
         if (scroll.y > 150) {
-            console.log('😂scroll.y:', scroll.y)
             setHeaderFullStyle({ backdropFilter: "saturate(50%) blur(20px)" })
         }
         else {

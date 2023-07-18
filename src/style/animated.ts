@@ -35,12 +35,8 @@ export const animatedRules: Rule<Theme>[] = [
         new RegExp(`^animated-(${Object.keys(animatedJSON).join('|')})$`),
         ([, name]) => {
             const { animationName, css, keyframes } = getAnimated()[name];
-            console.log('😃keyframes:', keyframes);
-
-            console.log('😏csscc:', css);
             const keyF = `@keyframes ${animationName} { ${keyframes} }`;
             const cssss = [keyF, css];
-            console.log('😍cssss:', cssss);
             return cssss;
         },
         {

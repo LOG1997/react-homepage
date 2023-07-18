@@ -5,7 +5,6 @@ import presetIcons from '@unocss/preset-icons';
 import presetUno from '@unocss/preset-uno';
 import { presetExtra } from 'unocss-preset-extra';
 import { animatedRules } from './src/style/animated'
-console.log('😋animatedRules:', animatedRules)
 // import presetWind from '@unocss/preset-wind'
 export default defineConfig({
     // ...UnoCSS options

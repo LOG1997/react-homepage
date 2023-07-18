@@ -30,7 +30,7 @@ export default function MyScene() {
         // The first parameter can be used to specify which mesh to import. Here we import all meshes
         BABYLON.SceneLoader.ImportMesh("", "src/assets/images/", "skull.babylon", scene, function (newMeshes) {
             // Set the target of the camera to the first imported mesh
-            camera.target = newMeshes[0];
+            camera.target= newMeshes[0] as any;
         });
     
         // Move the light with the camera

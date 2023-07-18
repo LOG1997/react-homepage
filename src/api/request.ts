@@ -34,13 +34,10 @@ axios.interceptors.response.use(
       case 10000:
         return res;
       case 10001:
-        console.log("10001");
         break;
       case 10002:
-        console.log("10002");
         break;
       default:
-        console.log("default");
         return res;
     }
     return res;

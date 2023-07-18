@@ -82,7 +82,6 @@ export default function BottomSection() {
         <div>
             <div className="flex justify-center">
                 {config_data.map((item, index) => {
-                    console.log("😆item:", item);
                     return (
                         <div
                             key={index}

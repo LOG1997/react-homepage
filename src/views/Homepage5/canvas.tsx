@@ -3,7 +3,6 @@ import "./canvas.scss"; import { useSize } from 'ahooks';
 export default function index() {
     const el = useRef<HTMLCanvasElement>(null);
     const size = useSize(document.querySelector('body'));
-    console.log('😉size:', size)
     // 长宽
     const WIDTH = size?.width || 600;
     const HEIGHT = size?.height || 600;

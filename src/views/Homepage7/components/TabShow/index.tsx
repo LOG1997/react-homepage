@@ -84,7 +84,6 @@ function TabBar(props: any) {
     const [isHover, setIsHover] = useState(false);
     const listenActiveLi = (activeLiProp: number) => {
 
-        console.log('😂activeLiProp:', activeLiProp)
         if (activeLiProp > 3) {
             props.setActiveLi(1);
         }

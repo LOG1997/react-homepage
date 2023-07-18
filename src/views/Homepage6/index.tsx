@@ -3,8 +3,6 @@ import gsap from 'gsap'
 import { useScroll } from 'ahooks'
 export default function Homepage6() {
     const scroll = useScroll(document);
-    console.log('😎scroll:', scroll)
-    console.log('😌scroll:', scroll)
     const box1 = useRef(null)
     const box2 = useRef(null)
     const t1 = gsap.timeline({ defaults: { duration: 3, ease: "elastic" } })
