@@ -58,7 +58,7 @@
     "@unocss/preset-wind": "^0.53.1",
     "@vitejs/plugin-react-swc": "^3.3.2",
     "eslint": "^8.42.0",
-    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react": "^7.33.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
     "sass": "^1.63.4",

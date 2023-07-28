@@ -17,6 +17,7 @@ module.exports = {
   plugins: ["react", "@typescript-eslint"],
   rules: {
     "no-console": 1,
+    "max-len": ['waring', { max: 80 }],
   },
   // setting: {
   //   react: {
