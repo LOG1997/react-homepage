@@ -1,0 +1,1 @@
+import{j as e}from"./index-fde794c4.js";function c(s){const{name:o,prefix:t="icon",iconStyle:n={width:"20px",height:"20px",fill:"currentColor",color:"#fff"}}=s,r=`#${t}-${o}`;return e.jsx("svg",{className:"svg-style","aria-hidden":"true",style:n,children:e.jsx("use",{href:r})})}export{c as S};
